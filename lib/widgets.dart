@@ -1,4 +1,10 @@
+import 'package:first/src/first.dart';
 import 'package:flutter/material.dart';
+
+class widgets extends StatefulWidget {
+  @override  
+  StatelessKonusu createState()=> StatelessKonusu();
+}
 
 class StatelessKonusu extends StatelessWidget {
   @override 
@@ -11,11 +17,10 @@ class StatelessKonusu extends StatelessWidget {
         child: Text(
           "Merhaba Dünya !!!",
           textDirection:TextDirection.ltr,
-          style: TextStyle(fontSize: 30.0,color: Colors.greenAccent),
           ),
       ),
         )
       );
   }
-  
-}
+
+} 
