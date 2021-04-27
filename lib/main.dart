@@ -6,7 +6,7 @@ void main() {
     routes: {
       '/': (context) => HomeRoute(),
       '/second': (context) => SecondRoute(),
-      '/second/third': (context) => ThirdRoute(),
+      '/third': (context) => ThirdRoute(),
     },
   ));
 }
@@ -14,14 +14,31 @@ void main() {
 class HomeRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Geeks for Geeks'),
-        backgroundColor: Colors.green,
-      ),
-      body: Center(
-          child: Column(
-          children: <Widget>[
+    var inputDecoration = InputDecoration(
+                border: OutlineInputBorder(),
+               labelText: 'Password',
+                 );
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('What is your name ?'),
+            backgroundColor: Colors.green,
+          ),
+          body: Center(
+            
+              child: Column(
+              children: <Widget>[
+    
+            SizedBox(
+           child: Container(
+            color: Color.alphaBlend(Colors.white, Colors.red
+            ),
+            padding: EdgeInsets.only(left:20,bottom:0,right: 20,top: 100),
+             child: TextField(
+             obscureText: true,
+             decoration: inputDecoration,
+    ),
+           ),
+        ),
           RaisedButton(
             child: Text('Click Me!'),
             onPressed: () {
@@ -65,8 +82,24 @@ class ThirdRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tap Me Page"),
-        backgroundColor: Colors.green,
+        title: Center(child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text("Tap Me Page"),
+        )),
+        backgroundColor: Colors.red,
+      ),
+      body: Center(
+        child: Container(
+          child: Center(
+            child: TextField(
+  obscureText: true,
+  decoration: InputDecoration(
+    border: OutlineInputBorder(),
+    labelText: 'Name',
+  ),
+),
+          ),
+        ),
       ),
     );
   }
