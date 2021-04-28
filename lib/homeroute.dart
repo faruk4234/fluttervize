@@ -38,14 +38,17 @@ class HomeRoute extends StatelessWidget {
           RaisedButton(
             child: Text('Start'),
             onPressed: () {
-                 Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => ThirdRoute(name:name.text),
-          ),
-        );
+               Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+            builder: (context) => ThirdRoute(),
+            settings: RouteSettings(
+            arguments: name.text,
+            ),
+            ));
             },
           ),
+          
         ],
       )),
     );
