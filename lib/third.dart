@@ -14,7 +14,7 @@ class ThirdRoute extends StatelessWidget {
               ' 0 < X <= 49   "FF" ',
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: (TextStyle(fontWeight: FontWeight.bold,fontSize: 20 ,color:Colors.purple)),
+              style: (TextStyle(fontWeight: FontWeight.bold,fontSize: 18 ,color:Colors.purple)),
             ),
                  ),
                ),
@@ -23,7 +23,7 @@ class ThirdRoute extends StatelessWidget {
               '49 < X <= 54   "DD" ',
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
             ),
     
                  
@@ -31,44 +31,54 @@ class ThirdRoute extends StatelessWidget {
               '54 < X <= 59   "DC" ',
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
             ),
     
              Text(
               '59 < X <= 65   "CC" ',
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
             ),
     
              Text(
               '65 < X <= 72   "CB" ',
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
             ),
     
             Text(
               '74 < X <= 80   "BB" ',
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
             ),
     
              Text(
               '80 < X <= 88   "BA" ',
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
             ),
     
               Text(
               '88 < X <= 100  "AA" ',
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
             ),
     
+             Padding(
+               padding: const EdgeInsets.only(left:2,bottom:0,right: 20,top: 20),
+               child: Text(
+                'bu dönem kaç ders alıyorsun? ',
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23),
+            ),
+             ), 
+
                 ],
               );
         return Scaffold(
