@@ -1,8 +1,16 @@
+import 'package:first/second.dart';
 import 'package:flutter/material.dart';
+
 
 class ThirdRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+      TextEditingController count = new TextEditingController();
+var datas =[];
+  datas=ModalRoute.of(context).settings.arguments;
+   String name=datas[0];
+    int no=datas[1];
+
     var column = Column(
                 children: <Widget>[
 
@@ -11,7 +19,7 @@ class ThirdRoute extends StatelessWidget {
                  child: Center(
                    
                    child: Text(
-              ' 0 < X <= 49   "FF" ',
+              '      0 < X <= 49   "FF" ',
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
               style: (TextStyle(fontWeight: FontWeight.bold,fontSize: 18 ,color:Colors.purple)),
@@ -78,6 +86,33 @@ class ThirdRoute extends StatelessWidget {
                 style: TextStyle(fontWeight: FontWeight.bold,fontSize: 23),
             ),
              ), 
+            
+            
+                      TextField(
+                        controller:count ,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Aldıgın ders sayısını gir',
+              ),
+              keyboardType: TextInputType.number,
+            ),
+
+             RaisedButton(
+            child: Text('hesapla '),
+            onPressed: () {
+              datas.add(count.text);
+               Navigator.push(
+            context,
+            MaterialPageRoute(
+            builder: (context) => SecondRoute(),
+            settings: RouteSettings(
+              arguments: datas
+            ),
+            ));
+            },
+          ),
+
+
 
                 ],
               );
@@ -85,12 +120,13 @@ class ThirdRoute extends StatelessWidget {
           appBar: AppBar(
             title: Center(child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text('Merhaba '+ModalRoute.of(context).settings.arguments.toString()+'  hadi dönem ortalamanı hesaplayalım :)'),
+              child: Text('Merhaba '+name+'  hadi dönem ortalamanı hesaplayalım :)'),
             )),
             backgroundColor: Colors.red,
           ),
           body: Form(
-              child: column
+              child:column
+              
       
       ),
     );

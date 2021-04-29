@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:first/main.dart';
 
 class HomeRoute extends StatelessWidget {
-  TextEditingController name = new TextEditingController();
 
+  var data =[];
+
+  TextEditingController name = new TextEditingController();
   @override
   Widget build(BuildContext context) {
 
@@ -38,12 +40,14 @@ class HomeRoute extends StatelessWidget {
           RaisedButton(
             child: Text('Start'),
             onPressed: () {
+                data.add(name.text);
+                data.add(0);
                Navigator.pushReplacement(
             context,
             MaterialPageRoute(
             builder: (context) => ThirdRoute(),
             settings: RouteSettings(
-            arguments: name.text,
+            arguments:data
             ),
             ));
             },
