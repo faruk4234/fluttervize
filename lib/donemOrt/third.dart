@@ -1,4 +1,4 @@
-import 'package:first/second.dart';
+import 'package:first/donemOrt/second.dart';
 import 'package:flutter/material.dart';
 
 
@@ -101,7 +101,7 @@ var datas =[];
             child: Text('hesapla '),
             onPressed: () {
               datas.add(count.text);
-               Navigator.push(
+               Navigator.pushReplacement(
             context,
             MaterialPageRoute(
             builder: (context) => SecondRoute(),
