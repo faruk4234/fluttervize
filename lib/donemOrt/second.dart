@@ -17,10 +17,16 @@ class SecondRoute extends StatelessWidget {
     int turn =0;
     var notlar=[];
     return Scaffold(
-      appBar: AppBar(
-        title: Text('notlarını gir lütfen :)'),
-        backgroundColor: Colors.green,
-      ),
+      appBar:  AppBar(
+            title: Text('adın nedir'),
+            leading: GestureDetector(onTap: () {
+              Navigator.pushNamed(context, '/hakkında');
+            },
+            child: Icon(
+              Icons.search,
+            ),),
+            backgroundColor: Colors.green,
+          ),
     body: new Center(
           child: Padding(
             padding: const EdgeInsets.all(15.0),

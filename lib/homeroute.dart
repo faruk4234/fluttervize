@@ -1,6 +1,6 @@
 import 'package:first/donemOrt/third.dart';
 import 'package:flutter/material.dart';
-import 'package:first/main.dart';
+
 
 class HomeRoute extends StatelessWidget {
 
@@ -16,7 +16,13 @@ class HomeRoute extends StatelessWidget {
                  );
         return Scaffold(
           appBar: AppBar(
-            title: Text('What is your name ?'),
+            title: Text('adın nedir'),
+            leading: GestureDetector(onTap: () {
+              Navigator.pushNamed(context, '/hakkında');
+            },
+            child: Icon(
+              Icons.search,
+            ),),
             backgroundColor: Colors.green,
           ),
           body: Center(
@@ -52,7 +58,10 @@ class HomeRoute extends StatelessWidget {
             ));
             },
           ),
-          
+          Text(
+  "adınızı girin sonra ders sayısıyla birlikte derslerinizin puanlarını girin ",
+  style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 0.5),
+)
         ],
       )),
     );
