@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:first/giriş/Register.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 
 class Login extends StatefulWidget {
@@ -8,7 +10,7 @@ class Login extends StatefulWidget {
 }
 
 class _State extends State<Login> {
-  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   @override
@@ -34,7 +36,7 @@ class _State extends State<Login> {
                 Container(
                   padding: EdgeInsets.all(10),
                   child: TextField(
-                    controller: nameController,
+                    controller: emailController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Email',
@@ -61,23 +63,30 @@ class _State extends State<Login> {
                       color: Colors.blue,
                       child: Text('Login'),
                       onPressed: () {
-                        print(nameController.text);
+                        print(emailController.text);
                         print(passwordController.text);
                       },
                     )),
                 Container(
                     child: Row(
                       children: <Widget>[
-                        Text('Does not have account?'),
+                        Text('hesap oluştur'),
                         FlatButton(
                           textColor: Colors.blue,
                           child: Text(
-                            'Sign in',
+                            'Kaydol',
                             style: TextStyle(fontSize: 20),
                           ),
                           onPressed: () {
-                            //signup screen
+                             Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                          builder: (context) =>Register(),
+                          settings: RouteSettings(
+                          ),
+                          ));
                           },
+                          
                         )
                       ],
                       mainAxisAlignment: MainAxisAlignment.center,

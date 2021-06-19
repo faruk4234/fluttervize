@@ -1,9 +1,12 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'homeroute.dart';
 import 'donemOrt/third.dart';
 import 'donemOrt/second.dart';
 import 'Hakkında.dart';
 import 'giriş/Login.dart';
+import 'giriş/Register.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -14,6 +17,7 @@ void main() {
       '/second': (context) => SecondRoute(),
       '/third': (context) => ThirdRoute(),
       '/hakkında': (context) => Hakinda(),
+      '/register':(context)=> Register(),
     },
   ));
 }
