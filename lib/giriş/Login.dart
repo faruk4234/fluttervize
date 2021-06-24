@@ -1,3 +1,4 @@
+import 'package:first/homeroute.dart';
 import 'package:flutter/material.dart';
 import 'package:first/giriş/Register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -62,9 +63,27 @@ class _State extends State<Login> {
                       textColor: Colors.white,
                       color: Colors.blue,
                       child: Text('Login'),
-                      onPressed: () {
+                      onPressed: () async {
                         print(emailController.text);
                         print(passwordController.text);
+                        try {
+                        UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                          email:emailController.text,
+                          password: passwordController.text
+                        ).then((value) => Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                          builder: (context) =>HomeRoute(),
+                          settings: RouteSettings(
+                          ),
+                          )) );
+                      } on FirebaseAuthException catch (e) {
+                        if (e.code == 'user-not-found') {
+                          print('No user found for that email.');
+                        } else if (e.code == 'wrong-password') {
+                          print('Wrong password provided for that user.');
+                        }
+                      }
                       },
                     )),
                 Container(
