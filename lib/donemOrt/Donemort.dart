@@ -17,7 +17,7 @@ class Donemort extends StatelessWidget {
       toplam=toplam+double.parse(notes[i].toString()) ;
   };
 
-  toplam=toplam/double.parse(datas[1].toString());
+  toplam=toplam/notes.length;
 
     return Container(
     color:Colors.green,
