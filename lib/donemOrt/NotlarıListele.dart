@@ -60,7 +60,7 @@ class NotlarListele extends StatelessWidget {
             elevation:4.0,
             onPressed: (){
               
-            )               },
+                       },
             ));
 
 
@@ -75,3 +75,4 @@ class NotlarListele extends StatelessWidget {
   }
 
 } 
+}
