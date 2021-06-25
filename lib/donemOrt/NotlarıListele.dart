@@ -12,7 +12,6 @@ class NotlarListele extends StatelessWidget {
   Widget build(BuildContext context) {
   List<Widget> textWidgetList = List<Widget>(); // Here we defined a list of widget!
 
-  var array=[];
 
      Future<void> getData() async {
     // Get docs from collection reference
@@ -20,15 +19,13 @@ class NotlarListele extends StatelessWidget {
     QuerySnapshot querySnapshot = await _collectionRef.get();
 
     // Get data from docs and convert map to List
-    final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
+    var allData = querySnapshot.docs.map((doc) => doc.data()).toList();
 
-         for(int i =0; i<array.length-1;i++ ){
-           array.add(allData[i].values.toList()[0]); 
-      }
+       return allData;
+    
         }
 
-      getData();
-        
+      
 
       textWidgetList.add(  Text(
         "Daha önceki notlarının listesi",
@@ -50,6 +47,15 @@ class NotlarListele extends StatelessWidget {
             ),
             ));
             },
+            ));
+
+         textWidgetList.add( RaisedButton(
+            child:  const Text('Tekrar hesapla'),
+            color: Colors.green,
+            elevation:4.0,
+            onPressed: (){
+              
+            )               },
             ));
 
 
