@@ -95,7 +95,7 @@ class SecondRoute extends StatelessWidget {
            },
        print(turn.toString()),
              },
-                child: new Text('ciguli'),
+                child: new Text('devam'),
               ),
 
       ]),
