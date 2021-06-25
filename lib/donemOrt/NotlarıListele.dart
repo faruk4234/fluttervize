@@ -18,12 +18,17 @@ class NotlarListele extends StatelessWidget {
  CollectionReference _collectionRef =FirebaseFirestore.instance.collection('users');
     QuerySnapshot querySnapshot = await _collectionRef.get();
 
-    // Get data from docs and convert map to List
     var allData = querySnapshot.docs.map((doc) => doc.data()).toList();
 
-       return allData;
-    
-        }
+    for (var i = 0; i < allData.length; i++) {
+      int x= allData[i].values.toList()[0];
+      StreamBuilder(
+        stream: _collectionRef.snapshots() ,
+        builder: (BuildContext context,AsyncSnapshot asyncSnapshot){
+        return Text(asyncSnapshot.data.data());
+      },);
+      
+    }
 
       
 
