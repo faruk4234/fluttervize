@@ -27,6 +27,7 @@ class NotlarListele extends StatelessWidget {
       }
         }
 
+      getData();
         
 
       textWidgetList.add(  Text(
@@ -34,7 +35,6 @@ class NotlarListele extends StatelessWidget {
           textDirection:TextDirection.ltr,
           ));
 
-      getData();
 
 
       textWidgetList.add( RaisedButton(
