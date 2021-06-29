@@ -1,4 +1,7 @@
 
+import 'dart:js';
+
+import 'package:first/donemOrt/Notlar%C4%B1Listele.dart';
 import 'package:flutter/material.dart';
 import 'homeroute.dart';
 import 'donemOrt/third.dart';
@@ -17,6 +20,7 @@ void main() {
       '/third': (context) => ThirdRoute(),
       '/hakkında': (context) => Hakinda(),
       '/register':(context)=> Register(),
+      '/notList':(context)=> NotlarListele()
     },
   ));
 }
