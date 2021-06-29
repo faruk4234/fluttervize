@@ -6,73 +6,32 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class NotlarListele extends StatelessWidget {
+  
 
-
-  @override 
+  @override
   Widget build(BuildContext context) {
-  List<Widget> textWidgetList = List<Widget>(); // Here we defined a list of widget!
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
 
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc().get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
 
-     Future<void> getData() async {
-    // Get docs from collection reference
- CollectionReference _collectionRef =FirebaseFirestore.instance.collection('users');
-    QuerySnapshot querySnapshot = await _collectionRef.get();
+        if (snapshot.hasError) {
+          return Text("Something went wrong");
+        }
 
-    var allData = querySnapshot.docs.map((doc) => doc.data()).toList();
+        if (snapshot.hasData && !snapshot.data!.exists) {
+          return Text("Document does not exist");
+        }
 
-    for (var i = 0; i < allData.length; i++) {
-      int x= allData[i].values.toList()[0];
-      StreamBuilder(
-        stream: _collectionRef.snapshots() ,
-        builder: (BuildContext context,AsyncSnapshot asyncSnapshot){
-        return Text(asyncSnapshot.data.data());
-      },);
-      
-    }
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data.data() as Map<String, dynamic>;
+          return Text("sadas");
+        }
 
-      
-
-      textWidgetList.add(  Text(
-        "Daha önceki notlarının listesi",
-          textDirection:TextDirection.ltr,
-          ));
-
-
-
-      textWidgetList.add( RaisedButton(
-            child:  const Text('Tekrar hesapla'),
-            color: Colors.green,
-            elevation:4.0,
-            onPressed: (){
-               Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-            builder: (context) => HomeRoute(),
-            settings: RouteSettings(
-            ),
-            ));
-            },
-            ));
-
-         textWidgetList.add( RaisedButton(
-            child:  const Text('Tekrar hesapla'),
-            color: Colors.green,
-            elevation:4.0,
-            onPressed: (){
-              
-                       },
-            ));
-
-
-     return Scaffold(
-      body:  new Center(
-        child: Column(
-          children: textWidgetList,
-          
-        ),
-      ),
+        return Text("loading");
+      },
     );
   }
-
-} 
 }
