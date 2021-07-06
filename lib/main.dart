@@ -13,6 +13,8 @@ import 'giriş/Register.dart';
 void main() {
   runApp(MaterialApp(
     initialRoute: '/login',
+
+    
     routes: {
       '/login': (context) => Login(),
       '/Home': (context) => HomeRoute(),

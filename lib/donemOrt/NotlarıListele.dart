@@ -21,7 +21,7 @@ class NotlarListele extends StatelessWidget {
           return Text("Something went wrong");
         }
 
-        if (snapshot.hasData && !snapshot.data!.exists) {
+        if (snapshot.hasData && !snapshot.data.exists) {
           return Text("Document does not exist");
         }
 
