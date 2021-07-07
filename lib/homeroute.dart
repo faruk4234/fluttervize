@@ -1,10 +1,18 @@
 import 'package:first/donemOrt/third.dart';
 import 'package:flutter/material.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 
 class HomeRoute extends StatelessWidget {
 
   var data =[];
+YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: 'iLnmTe5Q2Qw',
+    flags: YoutubePlayerFlags(
+        mute: false,
+        autoPlay: true,
+    ),
+);
 
   TextEditingController name = new TextEditingController();
   @override
@@ -60,8 +68,10 @@ class HomeRoute extends StatelessWidget {
           ),
           Text(
   "adınızı girin sonra ders sayısıyla birlikte derslerinizin puanlarını girin ",
-  style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 0.5),
-)
+        style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 0.5),
+      ),
+          
+
         ],
       )),
     );

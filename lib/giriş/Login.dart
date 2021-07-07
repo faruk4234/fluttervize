@@ -2,6 +2,7 @@ import 'package:first/homeroute.dart';
 import 'package:flutter/material.dart';
 import 'package:first/giriş/Register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:youtube_player_iframe/youtube_player_iframe.dart';
 
 
 class Login extends StatefulWidget {
@@ -9,6 +10,16 @@ class Login extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new _State();
 }
+
+YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: 'l0B39DloYA8',
+    params: YoutubePlayerParams(
+        playlist: ['l0B39DloYA8', 'l0B39DloYA8'], // Defining custom playlist
+        startAt: Duration(seconds: 30),
+        showControls: true,
+        showFullscreenButton: true,
+    ),
+);
 
 class _State extends State<Login> {
   TextEditingController emailController = TextEditingController();
@@ -109,7 +120,11 @@ class _State extends State<Login> {
                         )
                       ],
                       mainAxisAlignment: MainAxisAlignment.center,
-                    ))
+                    )),
+                    YoutubePlayerIFrame(
+                        controller: _controller,
+                        aspectRatio: 16 / 9,
+                    ),
               ],
             )));
   }
