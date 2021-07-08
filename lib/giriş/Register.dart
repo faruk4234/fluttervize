@@ -1,8 +1,10 @@
+import 'dart:async';
 import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:first/giriş/Login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_animated_button/flutter_animated_button.dart';
 
 
 class Register extends StatefulWidget {
@@ -94,20 +96,29 @@ class _State extends State<Register> {
                     child: Row(
                       children: <Widget>[
                         Text('hesabın varmı ?'),
-                        FlatButton(
-                          textColor: Colors.blue,
-                          child: Text(
-                            'Giriş yap',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          onPressed: () {
-                            Navigator.pushReplacement(
+                         AnimatedButton(
+                        height: 70,
+                        width: 200,
+                        text: 'giriş',
+                        isReverse: true,
+                        selectedTextColor: Colors.red,
+                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        selectedBackgroundColor:Colors.blue,
+                        backgroundColor: Colors.red,
+                        borderColor: Colors.blue,
+                          borderWidth: 1,
+                          onPress: () {
+                            Timer.periodic(Duration(seconds: 1), (Timer t) {
+                               Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                             builder: (context) => Login(),
                             settings: RouteSettings(
                             ),
-                            ));
+                            )); 
+                                t.cancel();
+                              });    
+                           
                             },
                         )
                       ],

@@ -1,9 +1,11 @@
+import 'dart:async';
+
 import 'package:first/homeroute.dart';
 import 'package:flutter/material.dart';
 import 'package:first/giriş/Register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
-
+import 'package:flutter_animated_button/flutter_animated_button.dart';
 
 class Login extends StatefulWidget {
 
@@ -101,20 +103,30 @@ class _State extends State<Login> {
                     child: Row(
                       children: <Widget>[
                         Text('hesap oluştur'),
-                        FlatButton(
-                          textColor: Colors.blue,
-                          child: Text(
-                            'Kaydol',
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          onPressed: () {
-                             Navigator.pushReplacement(
+                       AnimatedButton(
+                        height: 70,
+                        width: 200,
+                        text: 'kayıt ol',
+                        isReverse: true,
+                        selectedTextColor: Colors.blue,
+                        transitionType: TransitionType.RIGHT_BOTTOM_ROUNDER,
+                        selectedBackgroundColor:Colors.red,
+                        backgroundColor: Colors.blue,
+                        borderColor: Colors.red,
+                          borderWidth: 1,
+                          onPress: () {
+                            Timer.periodic(Duration(seconds: 1), (Timer t) {
+                                print('yaaay');  
+                                  Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                           builder: (context) =>Register(),
                           settings: RouteSettings(
                           ),
-                          ));
+                          ));    
+                                t.cancel();
+                              });    
+                           
                           },
                           
                         )
