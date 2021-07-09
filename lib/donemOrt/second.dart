@@ -15,6 +15,7 @@ class SecondRoute extends StatelessWidget {
     int no=datas[1];
     String count =datas[2];
     int turn =0;
+    String userName= datas[3];
     var notlar=[];
     return Scaffold(
       appBar:  AppBar(
@@ -84,6 +85,7 @@ class SecondRoute extends StatelessWidget {
         );
       } ) 
            }else {
+            notlar.add(userName),
             Navigator.pushReplacement(
             context,
             MaterialPageRoute(

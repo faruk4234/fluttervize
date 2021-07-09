@@ -25,9 +25,12 @@ class Donemort extends StatelessWidget {
 
   toplam=toplam/notes.length;
 
+    CollectionReference usersref = FirebaseFirestore.instance.collection('users');
+    var userdata=usersref.doc(datas[datas.length-1]);
+    print(userdata);
+    Map<String,dynamic> userData ={"name":datas[datas.length-1].toString(),new DateTime.now().millisecondsSinceEpoch.toString():toplam};
 
-  FirebaseFirestore.instance.collection('users').add({new DateTime.now().millisecondsSinceEpoch.toString():toplam}).then((value) => print(value));
-
+    usersref.doc(datas[datas.length-1].toString()).update(userData);
     return Column(
       children: <Widget> [
          Text(

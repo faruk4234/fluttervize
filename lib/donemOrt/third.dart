@@ -101,6 +101,7 @@ var datas =[];
             child: Text('hesapla '),
             onPressed: () {
               datas.add(count.text);
+              datas.add(name);
                Navigator.pushReplacement(
             context,
             MaterialPageRoute(

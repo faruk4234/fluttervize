@@ -13,7 +13,7 @@ class Dersler extends StatelessWidget {
   List<Widget> textWidgetList = List<Widget>(); // Here we defined a list of widget!
     datas=ModalRoute.of(context).settings.arguments;
 
-    for (int i = 0; i < datas.length; i++) {
+    for (int i = 0; i < datas.length-1; i++) {
         
 
          ort.add((int.parse(datas[i][2])*0.4)+(int.parse(datas[i][3])*0.6));
@@ -38,7 +38,8 @@ class Dersler extends StatelessWidget {
       
       RaisedButton(
             onPressed: () => {
-               Navigator.pushReplacement(
+                data.add(datas[datas.length-1].toString()),
+               Navigator.push(
             context,
             MaterialPageRoute(
             builder: (context) => Donemort(),
