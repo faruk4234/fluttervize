@@ -27,10 +27,9 @@ class Donemort extends StatelessWidget {
 
     CollectionReference usersref = FirebaseFirestore.instance.collection('users');
     var userdata=usersref.doc(datas[datas.length-1]);
-    print(userdata);
-    Map<String,dynamic> userData ={"name":datas[datas.length-1].toString(),new DateTime.now().millisecondsSinceEpoch.toString():toplam};
-
-    usersref.doc(datas[datas.length-1].toString()).update(userData);
+    Map<String,dynamic> userData = {"name":datas[datas.length-1].toString(),new DateTime.now().millisecondsSinceEpoch.toString():toplam};
+    
+    usersref.doc(datas[datas.length-1].toString()).set((userData));
     return Column(
       children: <Widget> [
          Text(
@@ -39,10 +38,14 @@ class Donemort extends StatelessWidget {
           ),  
 
           RaisedButton(
-            child:  const Text('Daha önceki notlarımı listele'),
+            child:  const Text('Daha önceki kişilerin ortalamalarını listele'),
             color: Colors.green,
             elevation:4.0,
-            onPressed: (){
+            onPressed: () async {
+                var response = await userdata.get();
+                var veri =response.data;
+                print(veri);
+                                print('sda');
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -57,12 +60,15 @@ class Donemort extends StatelessWidget {
             child:  const Text('Tekrar hesapla'),
             color: Colors.green,
             elevation:4.0,
-            onPressed: (){
+            onPressed: ()  {
+             
+
                Navigator.pushReplacement(
             context,
             MaterialPageRoute(
             builder: (context) => HomeRoute(),
             settings: RouteSettings(
+              arguments: datas[datas.length-1].toString()
             ),
             ));
             },
