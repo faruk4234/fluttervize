@@ -19,14 +19,15 @@ class NotlarListele extends StatelessWidget {
             return Center(
               child: CircularProgressIndicator(),
             );
-          } else
+          } else {
             return ListView(
               children: snapshot.data.docs.map((doc) {
                 return Text(
                    doc.data().values.toList().toString());
-              
+                  
               }).toList(),
             );
+          }
         },
       ),
     );
